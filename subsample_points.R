@@ -1,9 +1,11 @@
-# Load necessary libraries
-library(sf)
-library(units)
+
 
 # Function to subsample points based on minimum and optional maximum distance
 subsample_points <- function(points, min_dist, max_dist = NULL) {
+  # Load necessary libraries
+  require(sf)
+  require(units)
+  
   # Ensure min_dist has units
   min_dist <- set_units(min_dist, "m")
   
