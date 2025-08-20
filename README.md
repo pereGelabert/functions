@@ -59,8 +59,8 @@ sig(raw_values, rmin = 20, rmax = 80)
 lin(raw_values)
 
 # Raster example
-library(raster)
-r <- raster(matrix(runif(100), 10, 10))
+library(terra)
+r <- rast(matrix(runif(100), 10, 10))
 sig_r(r, rmin = 0.2, rmax = 0.8)
 lin_r(r)
 ```
