@@ -68,3 +68,16 @@ get_RUSLE_LS <- function(dem, temp_dir) {
   
   FACTOR_S <- ifel(slope_tan < 0.09,
                    10.8 * slope_sin + 0.03,
+                   16.8 * slope_sin - 0.5)
+
+  names(FACTOR_S) <- "Sfactor"
+  # Factor LS
+  FACTOR_LS <- FACTOR_L * FACTOR_S
+  names(FACTOR_LS) <- "LSfactor"
+  # Devolver como lista de capas raster
+  return(c(
+    FACTOR_L,
+    FACTOR_S,
+    FACTOR_LS
+  ))
+}
