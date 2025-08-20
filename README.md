@@ -1,1 +1,4 @@
-ssdasd
+Funcions descriptor:
+- aaa
+- bbb
+- ccc
