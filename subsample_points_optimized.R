@@ -1,5 +1,5 @@
 
-
+# Function to subsample points based on minimum and optional maximum distance
 subsample_points <- function(s, distancia = 800) {
   require(sf)
   require(dplyr)
