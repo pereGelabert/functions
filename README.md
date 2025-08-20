@@ -1,6 +1,6 @@
 **Funcions:**
-   - [subsample points]([#subsample_points.R](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_pointsr))
-   - [subsample points optimized version](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_points_optimizedr)
+   - [#subsample_points.R](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_pointsr))
+   - https://github.com/pereGelabert/functions/blob/main/README.md#subsample_points_optimizedr-optimized-version
    - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
 
 
