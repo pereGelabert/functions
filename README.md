@@ -6,7 +6,7 @@
 
 ```r
 #Loading function in environment example
-source(paste0("https://raw.githubusercontent.com/pereGelabert/functions/refs/heads/main/","get_RUSLE_LS.R))
+source(paste0("https://raw.githubusercontent.com/pereGelabert/functions/refs/heads/main/","get_RUSLE_LS.R"))
 ```
 
 ---
