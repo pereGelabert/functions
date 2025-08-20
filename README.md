@@ -2,6 +2,7 @@
    - [subsample points at minimum distance](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_pointsr)
    - [subsample points at minimum distance (optimized version)](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_points_optimizedr-optimized-version)
    - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
+   - [LS calculation]() [Panagos et al., 2015](https://doi.org/10.3390/geosciences5020117)
 
 
 # subsample_points.R
@@ -73,7 +74,7 @@ lin_r(r)
 
 # get_RUSLE_LS.R
 
-**Purpose:**  
+## Description
 Calculate LS factors (Length-Slope) from a DEM raster using the European USLE method.
 
 ---
