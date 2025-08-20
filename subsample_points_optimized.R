@@ -1,5 +1,5 @@
 
-# Function to subsample points based on minimum and optional maximum distance
+# Function to subsample points based on minimum distance
 subsample_points <- function(s, distancia = 800) {
   require(sf)
   require(dplyr)
@@ -10,21 +10,21 @@ subsample_points <- function(s, distancia = 800) {
   
   while(nrow(restantes) > 0) {
     
-    # Elegir punto aleatorio
+    # set random point
     p <- restantes %>% slice_sample(n=1)
     
-    # Guardar seleccionado
+    # Keep random selected point
     seleccionados[[length(seleccionados) + 1]] <- p
     
-    # Buffer de exclusión
+    # Exclussion buffer
     buffer_p <- st_buffer(p, distancia)
     
-    # Filtrar puntos fuera del buffer
+    # Filter out-buffered points
     restantes <- restantes %>%
       filter(!st_intersects(geometry, buffer_p, sparse=FALSE))
   }
   
-  # Unir todos los puntos seleccionados
+  # Merge out-buffered points
   final <- do.call(rbind, seleccionados)
   
   return(final)
