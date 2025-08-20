@@ -1,59 +1,83 @@
-sig <- function(r,rmin, rmax){
-  
-  # plot(r)
-  normalized_values <- (r)
-  # hist(normalized_values)
-  # Normalize values between 50 and 300
-  range_min <- rmin
-  range_max <- rmax
+#' Sigmoidal Utility Transformation
+#'
+#' Transforms a numeric vector into a sigmoidal utility function, mapping values to [0,1]
+#' based on expert-defined minimum and maximum thresholds.
+#'
+#' @param r Numeric vector of raw values.
+#' @param rmin Numeric. Minimum threshold below which values are assigned 0.
+#' @param rmax Numeric. Maximum threshold above which values are assigned 1.
+#'
+#' @return Numeric vector of transformed values between 0 and 1.
+#'
+#' @details
+#' Values below `rmin` are set to 0, values above `rmax` are set to 1. Values between
+#' `rmin` and `rmax` are normalized linearly to the [0,1] interval.
+#'
+#' @examples
+#' raw_values <- c(10, 25, 50, 75, 100)
+#' sig(raw_values, rmin = 20, rmax = 80)
+#'
+sig <- function(r, rmin, rmax) {
+  normalized_values <- r
   lower_values <- normalized_values[normalized_values < rmin]
   lower_values[lower_values < rmin] <- 0
-  to_normalize <- normalized_values[normalized_values<=rmax & normalized_values>= rmin]
-  rang = range(to_normalize, na.rm=TRUE) 
-  central_values <- (to_normalize-rang[1]) / (diff(rang))
-  upper_values <- normalized_values[normalized_values > range_max]
+  to_normalize <- normalized_values[normalized_values <= rmax & normalized_values >= rmin]
+  rang <- range(to_normalize, na.rm = TRUE)
+  central_values <- (to_normalize - rang[1]) / (diff(rang))
+  upper_values <- normalized_values[normalized_values > rmax]
   upper_values[upper_values > rmax] <- 1
-  normalized_values <- c(lower_values,central_values,upper_values)
-  
+  normalized_values <- c(lower_values, central_values, upper_values)
   return(normalized_values)
 }
 
-
-lin <- function(r){
-  
-  
-  # get the min max values
-  minmax_r = range((r), na.rm=TRUE) 
-  
-  # rescale 
-  return( (r-minmax_r[1]) / (diff(minmax_r)))
+#' Linear Utility Transformation
+#'
+#' Rescales a numeric vector linearly to [0,1] based on its minimum and maximum.
+#'
+#' @param r Numeric vector of raw values.
+#'
+#' @return Numeric vector of transformed values between 0 and 1.
+#'
+#' @examples
+#' raw_values <- c(10, 25, 50, 75, 100)
+#' lin(raw_values)
+lin <- function(r) {
+  minmax_r <- range(r, na.rm = TRUE)
+  return((r - minmax_r[1]) / (diff(minmax_r)))
 }
 
-
-sig_r <- function(r,rmin, rmax){
-  
-  # plot(r)
-  normalized_values <- as.data.frame(r, cell=T) %>% 
-    rename(value=2)
-  # hist(normalized_values)
-  # Normalize values between 50 and 300
-  range_min <- rmin
-  range_max <- rmax
-  normalized_values <- normalized_values %>% mutate(Utilityfun= case_when(value<=rmin ~ 0,
-                                                     value>=rmax ~ 1,
-                                                     TRUE ~ (value - rmin) / (rmax - rmin)))
-  
+#' Sigmoidal Utility Transformation for Raster
+#'
+#' Applies a sigmoidal utility function to a raster, mapping values to [0,1].
+#'
+#' @param r Raster object (from `raster` or `terra` package).
+#' @param rmin Numeric. Minimum threshold below which values are assigned 0.
+#' @param rmax Numeric. Maximum threshold above which values are assigned 1.
+#'
+#' @return Raster object with transformed values.
+#'
+sig_r <- function(r, rmin, rmax) {
+  normalized_values <- as.data.frame(r, cell = TRUE) %>% 
+    rename(value = 2)
+  normalized_values <- normalized_values %>%
+    mutate(Utilityfun = case_when(
+      value <= rmin ~ 0,
+      value >= rmax ~ 1,
+      TRUE ~ (value - rmin) / (rmax - rmin)
+    ))
   r[normalized_values$cell] <- normalized_values$Utilityfun
   return(r)
 }
 
-
-lin_r <- function(r){
-  
-  
-  # get the min max values
-  minmax_r = range(values(r), na.rm=TRUE) 
-  
-  # rescale 
-  return( (r-minmax_r[1]) / (diff(minmax_r)))
+#' Linear Utility Transformation for Raster
+#'
+#' Applies a linear rescaling to [0,1] for a raster object.
+#'
+#' @param r Raster object (from `raster` or `terra` package).
+#'
+#' @return Raster object with transformed values.
+#'
+lin_r <- function(r) {
+  minmax_r <- range(values(r), na.rm = TRUE)
+  return((r - minmax_r[1]) / (diff(minmax_r)))
 }
