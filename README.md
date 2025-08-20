@@ -70,3 +70,16 @@ r <- rast(matrix(runif(100), 10, 10))
 sig_r(r, rmin = 0.2, rmax = 0.8)
 lin_r(r)
 ```
+
+# get_RUSLE_LS.R
+
+**Purpose:**  
+Calculate LS factors (Length-Slope) from a DEM raster using the European USLE method.
+
+---
+
+## Usage
+
+```r
+get_RUSLE_LS(dem, temp_dir)
+```
