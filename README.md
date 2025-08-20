@@ -11,7 +11,7 @@ This is useful for reducing spatial point density or ensuring a uniform spatial 
 ## Usage
 ```r
 subsample_points(points, min_dist, max_dist = NULL)
-
+```
 # subsample_points_optimized.R (Optimized Version)
 
 ## Description
@@ -28,4 +28,4 @@ This method is often faster and more memory-efficient than computing a full dist
 ## Usage
 ```r
 subsample_points(s, distancia = 800)
-
+```
