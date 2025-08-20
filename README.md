@@ -4,6 +4,11 @@
    - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
    - [LS calculation](https://github.com/pereGelabert/functions/blob/main/README.md#get_rusle_lsr) [Panagos et al., 2015](https://doi.org/10.3390/geosciences5020117)
 
+```r
+#Loading function in environment example
+source(paste0("https://raw.githubusercontent.com/pereGelabert/functions/refs/heads/main/","get_RUSLE_LS.R))
+```
+
 ---
 # subsample_points.R
 
