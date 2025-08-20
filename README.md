@@ -2,7 +2,7 @@
    - [subsample points at minimum distance](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_pointsr)
    - [subsample points at minimum distance (optimized version)](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_points_optimizedr-optimized-version)
    - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
-   - [LS calculation]() [Panagos et al., 2015](https://doi.org/10.3390/geosciences5020117)
+   - [LS calculation](https://github.com/pereGelabert/functions/blob/main/README.md#get_rusle_lsr) [Panagos et al., 2015](https://doi.org/10.3390/geosciences5020117)
 
 ---
 # subsample_points.R
