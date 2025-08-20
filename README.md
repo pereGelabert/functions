@@ -27,5 +27,5 @@ This method is often faster and more memory-efficient than computing a full dist
 
 ## Usage
 ```r
-subsample_points(s, distancia = 800)
+subsample_points(s, dist = 800)
 ```
