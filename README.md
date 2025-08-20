@@ -1,4 +1,4 @@
-# **Funcions:**
+# **Functions:**
    - [subsample points at minimum distance](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_pointsr)
    - [subsample points at minimum distance (optimized version)](https://github.com/pereGelabert/functions/blob/main/README.md#subsample_points_optimizedr-optimized-version)
    - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
