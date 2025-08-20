@@ -1,7 +1,7 @@
 #' Subsample Spatial Points Based on Minimum and Maximum Distance
 #'
 #' This function selects a subset of points from an `sf` points object such that:
-#'   - No two points are closer than a specified minimum distance (`min_dist`).
+#'   - Points are separated more than a specified minimum distance (`min_dist`).
 #'   - Optionally, only points within a maximum distance (`max_dist`) from each other are retained.
 #'
 #' @param points An `sf` object containing point geometries (POINT type).
