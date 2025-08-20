@@ -50,11 +50,11 @@ lin <- function(r) {
 #'
 #' Applies a sigmoidal utility function to a raster, mapping values to [0,1].
 #'
-#' @param r Raster object (from `raster` or `terra` package).
+#' @param r Raster or SpatRaster object (from `raster` or `terra` package).
 #' @param rmin Numeric. Minimum threshold below which values are assigned 0.
 #' @param rmax Numeric. Maximum threshold above which values are assigned 1.
 #'
-#' @return Raster object with transformed values.
+#' @return SpatRaster object with transformed values.
 #'
 sig_r <- function(r, rmin, rmax) {
   normalized_values <- as.data.frame(r, cell = TRUE) %>% 
@@ -73,9 +73,9 @@ sig_r <- function(r, rmin, rmax) {
 #'
 #' Applies a linear rescaling to [0,1] for a raster object.
 #'
-#' @param r Raster object (from `raster` or `terra` package).
+#' @param r Raster or SpatRaster object (from `raster` or `terra` package).
 #'
-#' @return Raster object with transformed values.
+#' @return SpatRaster object with transformed values.
 #'
 lin_r <- function(r) {
   minmax_r <- range(values(r), na.rm = TRUE)
