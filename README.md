@@ -1,5 +1,6 @@
-[subsample_points.R](#subsample_points.R)
-
+**Funcions:**
+[subsample points](#subsample_points.R)
+[subsample points optimized version](#subsample_points_optimized.R (Optimized Version))
 
 
 # subsample_points.R
