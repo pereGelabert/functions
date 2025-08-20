@@ -1,0 +1,59 @@
+sig <- function(r,rmin, rmax){
+  
+  # plot(r)
+  normalized_values <- (r)
+  # hist(normalized_values)
+  # Normalize values between 50 and 300
+  range_min <- rmin
+  range_max <- rmax
+  lower_values <- normalized_values[normalized_values < rmin]
+  lower_values[lower_values < rmin] <- 0
+  to_normalize <- normalized_values[normalized_values<=rmax & normalized_values>= rmin]
+  rang = range(to_normalize, na.rm=TRUE) 
+  central_values <- (to_normalize-rang[1]) / (diff(rang))
+  upper_values <- normalized_values[normalized_values > range_max]
+  upper_values[upper_values > rmax] <- 1
+  normalized_values <- c(lower_values,central_values,upper_values)
+  
+  return(normalized_values)
+}
+
+
+lin <- function(r){
+  
+  
+  # get the min max values
+  minmax_r = range((r), na.rm=TRUE) 
+  
+  # rescale 
+  return( (r-minmax_r[1]) / (diff(minmax_r)))
+}
+
+
+sig_r <- function(r,rmin, rmax){
+  
+  # plot(r)
+  normalized_values <- as.data.frame(r, cell=T) %>% 
+    rename(value=2)
+  # hist(normalized_values)
+  # Normalize values between 50 and 300
+  range_min <- rmin
+  range_max <- rmax
+  normalized_values <- normalized_values %>% mutate(Utilityfun= case_when(value<=rmin ~ 0,
+                                                     value>=rmax ~ 1,
+                                                     TRUE ~ (value - rmin) / (rmax - rmin)))
+  
+  r[normalized_values$cell] <- normalized_values$Utilityfun
+  return(r)
+}
+
+
+lin_r <- function(r){
+  
+  
+  # get the min max values
+  minmax_r = range(values(r), na.rm=TRUE) 
+  
+  # rescale 
+  return( (r-minmax_r[1]) / (diff(minmax_r)))
+}
