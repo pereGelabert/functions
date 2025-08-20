@@ -19,6 +19,7 @@ This is useful for reducing spatial point density or ensuring a uniform spatial 
 ```r
 subsample_points(points, min_dist, max_dist = NULL)
 ```
+---
 # subsample_points_optimized.R (Optimized Version)
 
 ## Description
@@ -36,7 +37,7 @@ This method is often faster and more memory-efficient than computing a full dist
 ```r
 subsample_points(s, dist = 800)
 ```
-
+---
 # FIRERES Utility Transformations
 
 These functions transform raw environmental or project variables into **utility functions** agreed upon by an expert committee (FIRERES project). Two types of transformations are provided:
@@ -71,7 +72,7 @@ r <- rast(matrix(runif(100), 10, 10))
 sig_r(r, rmin = 0.2, rmax = 0.8)
 lin_r(r)
 ```
-
+---
 # get_RUSLE_LS.R
 
 ## Description
@@ -84,3 +85,4 @@ Calculate LS factors (Length-Slope) from a DEM raster using the European USLE me
 ```r
 get_RUSLE_LS(dem, temp_dir)
 ```
+---
