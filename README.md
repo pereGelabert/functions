@@ -29,3 +29,38 @@ This method is often faster and more memory-efficient than computing a full dist
 ```r
 subsample_points(s, dist = 800)
 ```
+
+# FIRERES Utility Transformations
+
+These functions transform raw environmental or project variables into **utility functions** agreed upon by an expert committee (FIRERES project). Two types of transformations are provided:
+
+1. **Sigmoidal Utility (`sig`, `sig_r`)**  
+   Maps values to [0,1] based on expert-defined thresholds (`rmin`, `rmax`).  
+   - Values ≤ `rmin` → 0  
+   - Values ≥ `rmax` → 1  
+   - Values in between are normalized linearly
+
+2. **Linear Utility (`lin`, `lin_r`)**  
+   Rescales values linearly to [0,1] based on the range of the dataset.
+
+## Functions
+
+- `sig(r, rmin, rmax)` – Transform numeric vectors using a sigmoidal utility.  
+- `lin(r)` – Transform numeric vectors linearly to [0,1].  
+- `sig_r(r, rmin, rmax)` – Apply sigmoidal transformation to raster data.  
+- `lin_r(r)` – Apply linear transformation to raster data.
+
+## Examples
+
+```r
+# Vector example
+raw_values <- c(10, 25, 50, 75, 100)
+sig(raw_values, rmin = 20, rmax = 80)
+lin(raw_values)
+
+# Raster example
+library(raster)
+r <- raster(matrix(runif(100), 10, 10))
+sig_r(r, rmin = 0.2, rmax = 0.8)
+lin_r(r)
+```
