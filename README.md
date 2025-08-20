@@ -1,7 +1,7 @@
 **Funcions:**
    - [subsample points](#subsample_points.R)
    - [subsample points optimized version](#subsample_points_optimized.R (Optimized Version))
-   - [#FIRERES_Utility_Transformations](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations))
+   - [FIRERES Priority Utility Functions Transformation](https://github.com/pereGelabert/functions/blob/main/README.md#fireres-utility-transformations)
 
 
 # subsample_points.R
